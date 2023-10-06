@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request as Input;
 
 class AdminController extends Controller
 {
@@ -17,7 +17,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    public function getListArtikel() {
+    public static function getListArtikel() {
         $data = ArtikelModel::where(function ($query) {
             $value = Input::get('search');
             $query->where('judul', 'like', '%'.$value.'%')->orWhere('category', 'like', '%'.$value.'%')->orWhere('isi', 'like', '%'.$value.'%');

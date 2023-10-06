@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Artikel;
 use App\Model\ArtikelModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request as Input;
 
 class ArtikelController extends Controller
 {
