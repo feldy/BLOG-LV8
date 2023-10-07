@@ -8,6 +8,6 @@ Instruction step for Running Application:
 
 Simple Application for Blog or Article Reading, the application can be:
 - **Add/Edit User Access for input content**
-- **Input Content with 2 categori tag for grouping themes **
-- **Like, Dislike and Comment Content **
-- **Find Content **
+- **Input Content with 2 categori tag for grouping themes**
+- **Like, Dislike and Comment Content**
+- **Find Content**
