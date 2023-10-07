@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="c-panel">
                                         <div class="c-author">
-                                            By <span class="c-font-uppercase"><i class="fa fa-user"></i> Admin Dispusip</span>
+                                            By <span class="c-font-uppercase"><i class="fa fa-user"></i> Admin</span>
                                         </div>
                                         <div class="c-date">
                                             on <span class="c-font-uppercase">{{ date_format($item->created_at, 'd/m/Y H:i:s') }}</span>

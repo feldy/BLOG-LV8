@@ -7,7 +7,7 @@
                     <li>
                         <a href="#" class="c-font-uppercase c-font-bold c-font-dark">
                             SISTEM DOSIR ELEKTRONIK <br>
-                            DINAS PERPUSTAKAAN DAN KEARSIPAN DKI JAKARTA
+                            
                         </a>
                     </li>
                 </ul>

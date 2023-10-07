@@ -4,7 +4,7 @@
     <div class="c-postfooter">
         <div class="container">
             <p class="c-font-oswald c-font-14">
-                Copyright &copy; Dispusip DKI Jakarta.
+                Copyright &copy; efway.
             </p>
         </div>
     </div>

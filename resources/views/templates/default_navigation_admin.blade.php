@@ -6,7 +6,7 @@
                 <div class="c-brand c-pull-left">
                     <a href="{{ route('admin.index') }}" class="c-logo">
                         <h1 style="color: #FFFFFF;" class="c-center c-font-uppercase c-font-bold">
-                            <i class="icon-user-follow c-font-white"></i> Admin Panel Dosir Dispusip</h1>
+                            <i class="icon-user-follow c-font-white"></i> Admin Panel Dosir</h1>
                     </a>
                     <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
                         <span class="c-line"></span>

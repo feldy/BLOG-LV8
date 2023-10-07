@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="c-media">
-                            {{ HTML::image(asset('assets/base/img/default/logo.png'), 'image', array('class' => 'img-responsive')) }}
+                            <!-- {{ HTML::image(asset('assets/base/img/default/logo.png'), 'image', array('class' => 'img-responsive')) }} -->
                         </div>
                     </div>
                     <div class="col-md-8">
