@@ -18,6 +18,9 @@ Route::get('index', 'Artikel\ArtikelController@index')->name('page.index');
 Route::get('detail', 'Artikel\ArtikelController@detail')->name('page.detail');
 Route::get('kategori', 'Artikel\ArtikelController@kategori')->name('page.kategori');
 Route::get('search', 'Artikel\ArtikelController@search')->name('page.search');
+Route::get('like', 'Artikel\ArtikelController@like')->name('page.like');
+Route::get('dislike', 'Artikel\ArtikelController@dislike')->name('page.dislike');
+Route::post('comment', 'Artikel\ArtikelController@comment')->name('page.comment');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('admin', 'Admin\AdminController@index')->name('admin.index');
     Route::get('hint', 'Admin\AdminController@hint')->name('admin.hint');

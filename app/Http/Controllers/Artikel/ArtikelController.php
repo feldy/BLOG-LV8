@@ -2,13 +2,56 @@
 
 namespace App\Http\Controllers\Artikel;
 
+use App\Http\Controllers\Util\UtilController;
 use App\Model\ArtikelModel;
+use App\Model\CommentModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request as Input;
 
 class ArtikelController extends Controller
 {
+
+    public function comment(Request $request) {
+        // dd($request);
+
+        $post = CommentModel::find($request->idArtikel);
+        if (!$post) {
+            $post = new CommentModel;
+            $post->id = UtilController::UUID();
+        }
+        $post->artikel_id = $request->idArtikel;
+        $post->comment = $request->comment;
+        $post->name = $request->name;
+        $post->save();
+
+        // return redirect()->url('detail?id='.$post->artikel_id)->with('success','Data Berhasil di Simpan !');
+        return redirect('detail?id='.$request->idArtikel);
+    }
+    public function like() {
+        $obj = new \stdClass();
+        $id = Input::get('id');
+        $artikel = ArtikelModel::find($id);
+        if ($artikel) {
+            $artikel->like = $artikel->like + 1;
+            $artikel->save();
+        }
+
+        $obj->lastLike = $artikel->like;
+        return $obj;
+    }
+    public function dislike() {
+        $obj = new \stdClass();
+        $id = Input::get('id');
+        $artikel = ArtikelModel::find($id);
+        if ($artikel) {
+            $artikel->dislike = $artikel->dislike + 1;
+            $artikel->save();
+        }
+
+        $obj->lastDislike = $artikel->dislike;
+        return $obj;
+    }
     //
     public function getDataSideBar() {
         $obj = new \stdClass();
@@ -49,6 +92,11 @@ class ArtikelController extends Controller
         if ($artikel) {
             $artikel->viewed = $artikel->viewed + 1;
             $artikel->save();
+        }
+
+        // dd($data->data_artikel);
+        foreach($data->data_artikel as $item) {
+            $item->list_comment = CommentModel::where('artikel_id', $item->id)->orderBy('created_at', 'asc')->get();
         }
 
         return view('pages.detail_artikel')

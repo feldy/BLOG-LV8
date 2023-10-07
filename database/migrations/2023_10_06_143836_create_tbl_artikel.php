@@ -23,6 +23,8 @@ class CreateTblArtikel extends Migration
             $table->string('sumber', 100)->nullable();
             $table->string('cover', 100)->nullable();;
             $table->integer('viewed')->default(0);
+            $table->integer('like')->default(0);
+            $table->integer('dislike')->default(0);
             $table->boolean('is_publish')->default(1);
             $table->timestamps();
         });

@@ -1,4 +1,52 @@
 @extends('templates.default_main_page')
+@section('stylesheets')
+    <style type="text/css">
+        .styLinkHoverLike {
+            color: blue; 
+            text-decoration: underline; 
+            cursor: pointer
+        }
+        .styLinkHoverDislike {
+            color: red; 
+            text-decoration: underline; 
+            cursor: pointer
+        }
+    </style>
+@endsection
+@section('customjs')
+    <script type="text/javascript">
+        function likeAction(idArtikel, dom) {
+            $(document).ready(function() {
+                $.ajax({
+                    url: '{{ route('page.like') }}',
+                    data: {id: idArtikel},
+                    type: 'GET',
+                    dataType: 'json', // added data type
+                    success: function(res) {
+                        // console.log(res);
+                        dom.innerHTML = '<i class="fa fa-thumbs-up"></i> Like ' + res.lastLike;
+                    }
+                });
+            });
+        }
+        function dislikeAction(idArtikel, dom) {
+            // console.log(">>> dislikeAction", idArtikel);
+             $(document).ready(function() {
+                $.ajax({
+                    url: '{{ route('page.dislike') }}',
+                    data: {id: idArtikel},
+                    type: 'GET',
+                    dataType: 'json', // added data type
+                    success: function(res) {
+                        // console.log(res);
+                        dom.innerHTML = '<i class="fa fa-thumbs-down"></i> Dislike ' + res.lastDislike;
+                    }
+                });
+            });
+        }
+    </script>
+@endsection
+
 @section('content')
     <!-- BEGIN: PAGE CONTAINER -->
     <div class="c-layout-page">
@@ -31,6 +79,8 @@
                                         <div class="c-date">
                                             on <span class="c-font-uppercase">{{ date_format($item->created_at, 'd/m/Y H:i:s') }}</span>
                                             | <span><i class="fa fa-eye"></i> Viewed {{ number_format($item->viewed) }}</span>
+                                            | <span class="styLinkHoverLike" onclick="likeAction('{{ $item->id }}', this)"><i class="fa fa-thumbs-up"></i> Like {{ number_format($item->like) }}</span>
+                                              <span class="styLinkHoverDislike" onclick="dislikeAction('{{ $item->id }}', this)"><i class="fa fa-thumbs-down"></i> Dislike {{ number_format($item->dislike) }}</span>
                                         </div>
                                         <ul class="c-tags c-theme-ul-bg">
                                             @if ($item->category != "")
